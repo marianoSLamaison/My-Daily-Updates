@@ -7,14 +7,23 @@
     <body>
         <div id="options">
         </div><div id="view">
-            <div id="top">
-                <div id="title">
-                    <h1 th:text="${title}">placeholder</h1>
-                </div>       
-            </div>
-            <div id="bottom">
-        </div>
-
+            
+            <div id="title">
+                <h1 th:text="${title}">placeholder</h1>
+            </div>       
+            
+            <ul id="searchBarsList">
+                <li>
+                    <input class="searchbar" type="search" placeholder="search by tag"><input class="submitbutton" type="submit" value="search">
+                </li>
+                <li>
+                    <input class="searchbar" type="search" placeholder="search by text"><input class="submitbutton" type="submit" value="search">
+                </li>
+            </ul>
+            
+            <nav id="promotedUpdatesArea">
+                
+            </nav>
         </div>
     </body>
 </html>
