@@ -1,12 +1,12 @@
 package daily.Controllers.WelcomePage;
 
-import java.net.http.HttpRequest;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
@@ -23,6 +23,12 @@ public class ViewController {
         model.addAttribute("title", "Welcome to my page from thymeleaf");
         return "welcome/index";
     }
+   @RequestMapping(value = "/Test", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
+    @ResponseBody
+    public String TestAnswer() {
+    return "Hola! En efecto puedes hacer solicitudes al servidor y recibir respuesta!";
+    }
+
     @RequestMapping(value = "/Post/MostVisited", method = RequestMethod.GET)
     @ResponseBody
     public String Posts(@RequestParam("Amount") int amount) 
