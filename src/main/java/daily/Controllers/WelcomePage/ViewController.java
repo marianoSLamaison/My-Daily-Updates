@@ -6,9 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.ArrayList;
+
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import daily.Controllers.WelcomePage.DTOS.PostBlock;
 
 /*
  * Controller encargado de antender pedidos de usuario
@@ -31,9 +35,14 @@ public class ViewController {
 
     @RequestMapping(value = "/Post/MostVisited", method = RequestMethod.GET)
     @ResponseBody
-    public String Posts(@RequestParam("Amount") int amount) 
+    public ArrayList<PostBlock> Posts() 
     {
-        return "";
+        ArrayList<PostBlock> ret = new ArrayList<PostBlock>();
+        PostBlock p1 = new PostBlock(1, "My first Post", "This is my first post ever!");
+        PostBlock p2 = new PostBlock(2, "My second Post", "This is my second post ever!!");
+        ret.add(p1);
+        ret.add(p2);
+        return ret;
     }
     /* 
     Esto no fuciono debido a que spring ya resuelve esas request por si solo
